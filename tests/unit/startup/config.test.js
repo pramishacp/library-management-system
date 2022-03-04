@@ -15,6 +15,16 @@ describe('process.env config', () => {
 
   const exec = () => require('../../../startup/config');
 
+  it('should return dev when NODE_ENV=dev', () => {
+    process.env.NODE_ENV = 'dev';
+
+    const res = exec();
+    
+    expect(res).toHaveProperty('app');
+    expect(res.app.port).toBeTruthy();
+    expect(res.app.env).toBe('dev');
+  })
+
   it('should return dev by default', () => {
     const res = exec();
     
