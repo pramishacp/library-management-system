@@ -15,6 +15,12 @@ const config = {
             env: 'test'
         }
     },
+    'prod': {
+        app: {
+            port: parseInt(process.env.PROD_APP_PORT),
+            env: 'prod'
+        }
+    }
 }
 
 module.exports = config[env];
