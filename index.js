@@ -3,5 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 
-app.listen(process.env.DEV_APP_PORT, () => console.log(`Listening on port ${process.env.DEV_APP_PORT}...`));
+const config = require('./startup/config');
+
+app.listen(config.app.port, () => console.log(`Listening on ${config.app.env} on port ${config.app.port}...`));
 
