@@ -57,5 +57,11 @@ describe('/api/books', () => {
             expect(res.body.name).toBe(book.name);
             expect(res.body.stock).toBe(book.stock);
         });
+
+        it('should return 404 if invalid id is passed', async() => {
+            const res = await exec('1');
+
+            expect(res.status).toBe(404);
+        });
     })
 })
