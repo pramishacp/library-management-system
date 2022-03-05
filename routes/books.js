@@ -13,6 +13,8 @@ router.get('/', async(req, res) => {
 router.get('/:id', validateId, async(req, res) => {
     const book = await Book.findBookById(req.params.id);
 
+    if (!book) return res.status(404).send('The book with the given ID was not found.');
+
     res.status(200).send(book)
 })
 

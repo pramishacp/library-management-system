@@ -63,5 +63,12 @@ describe('/api/books', () => {
 
             expect(res.status).toBe(404);
         });
+
+        it('should return 404 if no book with the given id exists', async() => {
+            const id = uuidv4();
+            const res = await exec(id);
+
+            expect(res.status).toBe(404);
+        });
     })
 })
