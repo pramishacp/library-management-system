@@ -28,5 +28,12 @@ describe('/api/books', () => {
             expect(res.body.some(b => b.name === 'book1')).toBeTruthy();
             expect(res.body.some(b => b.name === 'book2')).toBeTruthy();
         });
+
+        it('should return 0 books', async() => {
+            const res = await exec();
+
+            expect(res.status).toBe(200);
+            expect(res.body.length).toBe(0);
+        });
     })
 })
