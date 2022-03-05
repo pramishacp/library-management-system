@@ -2,7 +2,7 @@ const request = require('supertest');
 const { v4: uuidv4 } = require('uuid');
 
 const { User } = require('../../models/user')
-const { createUser, findUserById } = require('../../services/user')
+const { createUser } = require('../../services/user')
 
 let server;
 
