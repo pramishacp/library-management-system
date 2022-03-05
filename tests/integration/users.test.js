@@ -1,4 +1,5 @@
 const request = require('supertest');
+const { v4: uuidv4 } = require('uuid');
 
 const { User } = require('../../models/user')
 const { createUser, findUserById } = require('../../services/user')
@@ -25,6 +26,13 @@ describe('/api/users', () => {
 
         it('should return 404 if invalid id is passed', async() => {
             const res = await exec('1');
+
+            expect(res.status).toBe(404);
+        });
+
+        it('should return 404 if no user with the given id exists', async() => {
+            const id = uuidv4();
+            const res = await exec(id);
 
             expect(res.status).toBe(404);
         });
