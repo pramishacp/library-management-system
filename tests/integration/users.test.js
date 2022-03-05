@@ -22,5 +22,11 @@ describe('/api/users', () => {
             expect(res.status).toBe(200);
             expect(res.body).toHaveProperty('name', user.name);     
         });
+
+        it('should return 404 if invalid id is passed', async () => {
+            const res = await exec('1');
+      
+            expect(res.status).toBe(404);
+        });
     })
 })
