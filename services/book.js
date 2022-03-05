@@ -2,20 +2,17 @@ let books = require('../db/books');
 
 findBooks = () => books
 
-insertManyBooks = (books) => {
-    books.forEach(book => insertOneBook(book))
-}
+findBookById = (id) => books.find((book) => book.id === id)
 
-insertOneBook = (book) => {
-    books.push(book)
-}
+insertManyBooks = (books) => books.forEach(book => insertOneBook(book))
 
-removeAllBooks = () => {
-    books = [];
-}
+insertOneBook = (book) => books.push(book)
+
+removeAllBooks = () => books = [];
 
 module.exports = {
     findBooks,
+    findBookById,
     insertOneBook,
     insertManyBooks,
     removeAllBooks

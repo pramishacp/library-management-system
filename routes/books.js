@@ -9,4 +9,10 @@ router.get('/', async(req, res) => {
     res.status(200).send(books)
 })
 
+router.get('/:id', async(req, res) => {
+    const book = await Book.findBookById(req.params.id);
+
+    res.status(200).send(book)
+})
+
 module.exports = router;
