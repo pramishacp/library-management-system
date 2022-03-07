@@ -1,5 +1,6 @@
-const validateId = require('./validateId');
+const { validateId, validateUserId } = require('./validateId');
 
 module.exports = {
-    validateId
+    validateId,
+    validateUserId
 }
